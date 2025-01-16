@@ -87,23 +87,23 @@ public class ExprTimeValues extends SimpleExpression<Double> {
 		return Arrays.stream(timespans.getArray(event)).map(timespan -> {
 			switch (setting) {
 				case 0:
-					return (double) timespan.getTicks_i();
+					return (double) timespan.getAs(Timespan.TimePeriod.TICK);
 				case 1:
-					return (double) timespan.getMilliSeconds();
+					return (double) timespan.getAs(Timespan.TimePeriod.MILLISECOND);
 				case 2:
-					return (double) TimeUnit.MILLISECONDS.toSeconds(timespan.getMilliSeconds());
+					return (double) timespan.getAs(Timespan.TimePeriod.SECOND);
 				case 3:
-					return (double) TimeUnit.MILLISECONDS.toMinutes(timespan.getMilliSeconds());
+					return (double) timespan.getAs(Timespan.TimePeriod.MINUTE);
 				case 4:
-					return (double) TimeUnit.MILLISECONDS.toHours(timespan.getMilliSeconds());
+					return (double) timespan.getAs(Timespan.TimePeriod.HOUR);
 				case 5:
-					return (double) TimeUnit.MILLISECONDS.toDays(timespan.getMilliSeconds());
+					return (double) timespan.getAs(Timespan.TimePeriod.DAY);
 				case 6:
-					return (double) TimeUnit.MILLISECONDS.toDays(timespan.getMilliSeconds()) / 7;
+					return (double) timespan.getAs(Timespan.TimePeriod.WEEK);
 				case 7:
-					return (double) (TimeUnit.MILLISECONDS.toDays(timespan.getMilliSeconds()) / 7) / 4.348214;
+					return (double) timespan.getAs(Timespan.TimePeriod.MONTH);
 				case 8:
-					return (double) ((TimeUnit.MILLISECONDS.toDays(timespan.getMilliSeconds()) / 7) / 4.348214) / 12;
+					return (double) timespan.getAs(Timespan.TimePeriod.YEAR);
 				default:
 					return null;
 			}

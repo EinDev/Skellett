@@ -50,20 +50,20 @@ public class ExprMaxDamageTicks extends SimpleExpression<Timespan>{
 	@Override
 	@Nullable
 	protected Timespan[] get(Event e) {
-		return new Timespan[]{Timespan.fromTicks((entity.getSingle(e)).getMaximumNoDamageTicks())};
+		return new Timespan[]{new Timespan(Timespan.TimePeriod.TICK, (entity.getSingle(e)).getMaximumNoDamageTicks())};
 	}
 
 	@Override
 	public void change(Event e, Object[] delta, Changer.ChangeMode mode){
 		if (entity == null || entity.getSingle(e) == null)
 			return;
-		Timespan before = Timespan.fromTicks((int)(entity.getSingle(e)).getMaximumNoDamageTicks());
+		Timespan before = new Timespan(Timespan.TimePeriod.TICK, (entity.getSingle(e)).getMaximumNoDamageTicks());
 		if (mode == ChangeMode.SET) {
-			((LivingEntity)entity.getSingle(e)).setMaximumNoDamageTicks((int) ((Timespan)delta[0]).getTicks());
+			((LivingEntity)entity.getSingle(e)).setMaximumNoDamageTicks((int) ((Timespan)delta[0]).getAs(Timespan.TimePeriod.TICK));
 		} else if (mode == ChangeMode.ADD) {
-			((LivingEntity)entity.getSingle(e)).setMaximumNoDamageTicks((int) (before.getTicks() + ((Timespan)delta[0]).getTicks()));
+			((LivingEntity)entity.getSingle(e)).setMaximumNoDamageTicks((int) (before.getAs(Timespan.TimePeriod.TICK) + ((Timespan)delta[0]).getAs(Timespan.TimePeriod.TICK)));
 		} else if (mode == ChangeMode.REMOVE) {
-			((LivingEntity)entity.getSingle(e)).setMaximumNoDamageTicks((int) (before.getTicks() - ((Timespan)delta[0]).getTicks()));
+			((LivingEntity)entity.getSingle(e)).setMaximumNoDamageTicks((int) (before.getAs(Timespan.TimePeriod.TICK) - ((Timespan)delta[0]).getAs(Timespan.TimePeriod.TICK)));
 		}
 	}
 
