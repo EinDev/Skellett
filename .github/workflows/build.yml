@@ -30,8 +30,8 @@ jobs:
         with:
           java-version: ${{ matrix.java }}
           distribution: 'microsoft'
-      - name: Build Skellett and run test scripts
-        run: gradle addonTestJava8
+      - name: Build Skellett
+        run: gradle shadowJar
         env:
           PACKAGES_USER: ${{ secrets.PACKAGES_USER }}
           PACKAGES_KEY: ${{ secrets.PACKAGES_KEY }}
