@@ -38,7 +38,7 @@ public class ExprBrewingFuelConsuming extends SimpleExpression<Boolean>{
 	}
 	@Override
 	public boolean init(Expression<?>[] e, int arg1, Kleenean arg2, ParseResult arg3) {
-		if (!ScriptLoader.isCurrentEvent(BrewingStandFuelEvent.class)) {
+		if (!getParser().isCurrentEvent(BrewingStandFuelEvent.class)) {
 			Skript.error("You can not use brewing stand fuel consuming expression in any event but brewing stand fuel event!");
 			return false;
 		}

@@ -25,7 +25,7 @@ public class ExprBreedingEntity extends SimpleExpression<LivingEntity>{
 		return true;
 	}
 	public boolean init(Expression<?>[] args, int arg1, Kleenean arg2, SkriptParser.ParseResult arg3) {
-		if (!ScriptLoader.isCurrentEvent(EntityBreedEvent.class)) {
+		if (!getParser().isCurrentEvent(EntityBreedEvent.class)) {
 			Skript.error("You can not use Final bred entity expression in any event but on breeding event!");
 			return false;
 		}

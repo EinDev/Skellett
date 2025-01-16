@@ -36,7 +36,7 @@ public class ExprEventNpcSelector extends SimpleExpression<CommandSender>{
 	}
 	@Override
 	public boolean init(Expression<?>[] e, int matchedPattern, Kleenean isDelayed, ParseResult parser) {
-		if (!ScriptLoader.isCurrentEvent(NPCSelectEvent.class)) {
+		if (!getParser().isCurrentEvent(NPCSelectEvent.class)) {
 			Skript.error("You can not use npc selector expression in any event but on npc select!");
 			return false;
 		}

@@ -260,14 +260,8 @@ public class Skellett extends JavaPlugin {
 		return ChatColor.translateAlternateColorCodes('&', text);
 	}
 
-	@SuppressWarnings("deprecation")
 	public static long getTicks(Timespan time) {
-		if (Skript.methodExists(Timespan.class, "getTicks_i")) {
-			Number tick = time.getTicks_i();
-			return tick.intValue();
-		} else {
-			return time.getTicks();
-		}
+		return time.getAs(Timespan.TimePeriod.TICK);
 	}
 	
 	@SuppressWarnings({ "unchecked", "rawtypes" })

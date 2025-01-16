@@ -35,7 +35,7 @@ public class ExprBrewingFuelPower extends SimpleExpression<Number> {
 		return true;
 	}
 	public boolean init(Expression<?>[] args, int arg1, Kleenean arg2, SkriptParser.ParseResult arg3) {
-		if (!ScriptLoader.isCurrentEvent(BrewingStandFuelEvent.class)) {
+		if (!getParser().isCurrentEvent(BrewingStandFuelEvent.class)) {
 			Skript.error("You can not use brewing stand fuel expression in any event but brewing stand fuel event!");
 			return false;
 		}

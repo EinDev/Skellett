@@ -32,7 +32,7 @@ public class ExprDespawnNpc extends SimpleExpression<NPC>{
 		return true;
 	}
 	public boolean init(Expression<?>[] args, int arg1, Kleenean arg2, SkriptParser.ParseResult arg3) {
-		if (!ScriptLoader.isCurrentEvent(NPCDespawnEvent.class)) {
+		if (!getParser().isCurrentEvent(NPCDespawnEvent.class)) {
 			Skript.error("You can not use despawned npc expression in any event but on npc despawn!");
 			return false;
 		}

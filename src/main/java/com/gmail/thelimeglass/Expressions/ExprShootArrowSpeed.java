@@ -30,7 +30,7 @@ public class ExprShootArrowSpeed extends SimpleExpression<Float> {
 		return true;
 	}
 	public boolean init(Expression<?>[] args, int arg1, Kleenean arg2, SkriptParser.ParseResult arg3) {
-		if (!ScriptLoader.isCurrentEvent(EntityShootBowEvent.class)) {
+		if (!getParser().isCurrentEvent(EntityShootBowEvent.class)) {
 			Skript.error("You can not use Arrow speed expression in any event but 'on entity shoot:' event!");
 			return false;
 		}

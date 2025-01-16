@@ -29,7 +29,7 @@ public class ExprSpreadSource extends SimpleExpression<Block> {
 		return true;
 	}
 	public boolean init(Expression<?>[] args, int arg1, Kleenean arg2, SkriptParser.ParseResult arg3) {
-		if (!ScriptLoader.isCurrentEvent(BlockSpreadEvent.class)) {
+		if (!getParser().isCurrentEvent(BlockSpreadEvent.class)) {
 			Skript.error("You can not use Source Block expression in any event but 'on spread:' event!");
 			return false;
 		}

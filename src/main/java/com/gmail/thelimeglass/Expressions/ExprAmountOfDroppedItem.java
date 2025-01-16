@@ -46,7 +46,7 @@ public class ExprAmountOfDroppedItem extends SimpleExpression<Number>{
 	@Override
 	@Nullable
 	protected Number[] get(Event e) {
-		if (entity.getSingle(e).getType() == EntityType.DROPPED_ITEM) {
+		if (entity.getSingle(e).getType() == EntityType.ITEM) {
 			return new Number[]{((Item)entity.getSingle(e)).getItemStack().getAmount()};
 		} else {
 			return new Number[]{0};

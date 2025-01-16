@@ -33,7 +33,7 @@ public class ExprEventMap extends SimpleExpression<MapView> {
 		return true;
 	}
 	public boolean init(Expression<?>[] args, int arg1, Kleenean arg2, SkriptParser.ParseResult arg3) {
-		if (!ScriptLoader.isCurrentEvent(MapInitializeEvent.class)) {
+		if (!getParser().isCurrentEvent(MapInitializeEvent.class)) {
 			Skript.error("You can not use event-map expression in any event but map initialize event!");
 			return false;
 		}

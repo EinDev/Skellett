@@ -24,7 +24,7 @@ public class ExprUnleashHitch extends SimpleExpression<Entity> {
 		return true;
 	}
 	public boolean init(Expression<?>[] e, int matchedPattern, Kleenean isDelayed, ParseResult parser) {
-		if (!ScriptLoader.isCurrentEvent(EntityUnleashEvent.class)) {
+		if (!getParser().isCurrentEvent(EntityUnleashEvent.class)) {
 			Skript.error("You can not use UnleashHitch expression in any event but on entity unleash!");
 			return false;
 		}

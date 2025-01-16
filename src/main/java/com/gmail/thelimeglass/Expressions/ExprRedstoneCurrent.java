@@ -32,7 +32,7 @@ public class ExprRedstoneCurrent extends SimpleExpression<Integer> {
 		return true;
 	}
 	public boolean init(Expression<?>[] e, int matchedPattern, Kleenean isDelayed, ParseResult parser) {
-		if (!ScriptLoader.isCurrentEvent(BlockRedstoneEvent.class)) {
+		if (!getParser().isCurrentEvent(BlockRedstoneEvent.class)) {
 			Skript.error("You can not use New Redstone Current expression in any event but on redstone changing event!");
 			return false;
 		}

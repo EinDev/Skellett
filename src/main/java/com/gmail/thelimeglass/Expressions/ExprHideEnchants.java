@@ -32,7 +32,7 @@ public class ExprHideEnchants extends SimplePropertyExpression<ItemStack, ItemSt
 	public ItemStack convert(ItemStack item) {
 		if (item == null) return null;
 		if (item.getType() == Material.FISHING_ROD) {
-			item.addUnsafeEnchantment(Enchantment.ARROW_KNOCKBACK, 1);
+			item.addUnsafeEnchantment(Enchantment.KNOCKBACK, 1);
 		} else {
 			item.addUnsafeEnchantment(Enchantment.LURE, 1);
 		}

@@ -50,7 +50,7 @@ public class ExprMaxDamageTicks extends SimpleExpression<Timespan>{
 	@Override
 	@Nullable
 	protected Timespan[] get(Event e) {
-		return new Timespan[]{Timespan.fromTicks((int)(entity.getSingle(e)).getMaximumNoDamageTicks())};
+		return new Timespan[]{Timespan.fromTicks((entity.getSingle(e)).getMaximumNoDamageTicks())};
 	}
 
 	@Override

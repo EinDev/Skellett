@@ -46,7 +46,7 @@ public class ExprEventNpcCombustTime extends SimpleExpression<Number>{
 	@Nullable
 	protected Number[] get(Event e) {
 		if (NPCCombustEvent.class.isAssignableFrom(e.getClass())) {
-			return new Number[]{((NPCCombustEvent)e).getDuration()};
+			return new Number[]{((NPCCombustEvent)e).getHandle().getDuration()};
 		}
 		return null;
 	}
@@ -55,7 +55,7 @@ public class ExprEventNpcCombustTime extends SimpleExpression<Number>{
 		if (mode == ChangeMode.SET) {
 			if (NPCCombustEvent.class.isAssignableFrom(e.getClass())) {
 				Number time = (Number)delta[0];
-				((NPCCombustEvent)e).setDuration(time.intValue());
+				((NPCCombustEvent)e).getHandle().setDuration(time.intValue());
 			}
 		}
 	}

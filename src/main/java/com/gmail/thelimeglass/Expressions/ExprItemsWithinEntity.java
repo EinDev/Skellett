@@ -47,7 +47,7 @@ public class ExprItemsWithinEntity extends SimpleExpression<ItemStack>{
 	@Override
 	@Nullable
 	protected ItemStack[] get(Event e) {
-		if (entity.getSingle(e).getType() == EntityType.DROPPED_ITEM) {
+		if (entity.getSingle(e).getType() == EntityType.ITEM) {
 			return new ItemStack[]{((Item)entity.getSingle(e)).getItemStack()};
 		} else {
 			return null;

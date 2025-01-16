@@ -36,7 +36,7 @@ public class ExprBrewingInventory extends SimpleExpression<BrewerInventory>{
 	}
 	@Override
 	public boolean init(Expression<?>[] e, int matchedPattern, Kleenean isDelayed, ParseResult parser) {
-		if (!ScriptLoader.isCurrentEvent(BrewEvent.class)) {
+		if (!getParser().isCurrentEvent(BrewEvent.class)) {
 			Skript.error("You can not use brewing inventory expression in any event but on brew event!");
 			return false;
 		}

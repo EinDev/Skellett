@@ -36,7 +36,7 @@ public class ExprAnvilPrepareInventory extends SimpleExpression<AnvilInventory>{
 	}
 	@Override
 	public boolean init(Expression<?>[] e, int arg1, Kleenean arg2, ParseResult arg3) {
-		if (!ScriptLoader.isCurrentEvent(PrepareAnvilEvent.class)) {
+		if (!getParser().isCurrentEvent(PrepareAnvilEvent.class)) {
 			Skript.error("You can not use anvil inventory expression in any event but anvil prepare event!");
 			return false;
 		}

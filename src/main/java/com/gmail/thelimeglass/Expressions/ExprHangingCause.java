@@ -31,7 +31,7 @@ public class ExprHangingCause extends SimpleExpression<String> {
 		return true;
 	}
 	public boolean init(Expression<?>[] args, int arg1, Kleenean arg2, SkriptParser.ParseResult arg3) {
-		if (!ScriptLoader.isCurrentEvent(HangingBreakEvent.class) && ScriptLoader.isCurrentEvent(HangingBreakByEntityEvent.class)) {
+		if (!getParser().isCurrentEvent(HangingBreakEvent.class) && getParser().isCurrentEvent(HangingBreakByEntityEvent.class)) {
 			Skript.error("You can not use HangingCause expression in any event but on unhang!");
 			return false;
 		}

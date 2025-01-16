@@ -32,7 +32,7 @@ public class ExprHangingRemover extends SimpleExpression<Entity> {
 		return true;
 	}
 	public boolean init(Expression<?>[] args, int arg1, Kleenean arg2, SkriptParser.ParseResult arg3) {
-		if (!ScriptLoader.isCurrentEvent(HangingBreakByEntityEvent.class) && !ScriptLoader.isCurrentEvent(HangingBreakEvent.class)) {
+		if (!getParser().isCurrentEvent(HangingBreakByEntityEvent.class) && !getParser().isCurrentEvent(HangingBreakEvent.class)) {
 			Skript.error("You can not use HangingCause expression in any event but on unhang remove!");
 			return false;
 		}

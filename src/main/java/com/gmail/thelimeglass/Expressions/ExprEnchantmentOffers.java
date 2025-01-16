@@ -35,7 +35,7 @@ public class ExprEnchantmentOffers extends SimpleExpression<EnchantmentOffer> {
 		return false;
 	}
 	public boolean init(Expression<?>[] args, int arg1, Kleenean arg2, SkriptParser.ParseResult arg3) {
-		if (!ScriptLoader.isCurrentEvent(PrepareItemEnchantEvent.class)) {
+		if (!getParser().isCurrentEvent(PrepareItemEnchantEvent.class)) {
 			Skript.error("You can not use enchantment offers expression in any event but on enchant prepare!");
 			return false;
 		}

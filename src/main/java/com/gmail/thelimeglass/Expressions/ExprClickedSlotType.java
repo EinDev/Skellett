@@ -31,7 +31,7 @@ public class ExprClickedSlotType extends SimpleExpression<InventoryType.SlotType
 		return true;
 	}
 	public boolean init(Expression<?>[] args, int arg1, Kleenean arg2, SkriptParser.ParseResult arg3) {
-		if (!ScriptLoader.isCurrentEvent(InventoryClickEvent.class)) {
+		if (!getParser().isCurrentEvent(InventoryClickEvent.class)) {
 			Skript.error("You can not use clicked slot type expression in any event but inventory click!");
 			return false;
 		}
