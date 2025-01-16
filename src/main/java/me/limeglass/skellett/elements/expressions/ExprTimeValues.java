@@ -84,30 +84,18 @@ public class ExprTimeValues extends SimpleExpression<Double> {
 	protected Double[] get(Event event) {
 		if (timespans == null)
 			return null;
-		return Arrays.stream(timespans.getArray(event)).map(timespan -> {
-			switch (setting) {
-				case 0:
-					return (double) timespan.getAs(Timespan.TimePeriod.TICK);
-				case 1:
-					return (double) timespan.getAs(Timespan.TimePeriod.MILLISECOND);
-				case 2:
-					return (double) timespan.getAs(Timespan.TimePeriod.SECOND);
-				case 3:
-					return (double) timespan.getAs(Timespan.TimePeriod.MINUTE);
-				case 4:
-					return (double) timespan.getAs(Timespan.TimePeriod.HOUR);
-				case 5:
-					return (double) timespan.getAs(Timespan.TimePeriod.DAY);
-				case 6:
-					return (double) timespan.getAs(Timespan.TimePeriod.WEEK);
-				case 7:
-					return (double) timespan.getAs(Timespan.TimePeriod.MONTH);
-				case 8:
-					return (double) timespan.getAs(Timespan.TimePeriod.YEAR);
-				default:
-					return null;
-			}
-		}).filter(Objects::nonNull).toArray(Double[]::new);
+		return Arrays.stream(timespans.getArray(event)).map(timespan -> switch (setting) {
+            case 0 -> (double) timespan.getAs(Timespan.TimePeriod.TICK);
+            case 1 -> (double) timespan.getAs(Timespan.TimePeriod.MILLISECOND);
+            case 2 -> (double) timespan.getAs(Timespan.TimePeriod.SECOND);
+            case 3 -> (double) timespan.getAs(Timespan.TimePeriod.MINUTE);
+            case 4 -> (double) timespan.getAs(Timespan.TimePeriod.HOUR);
+            case 5 -> (double) timespan.getAs(Timespan.TimePeriod.DAY);
+            case 6 -> (double) timespan.getAs(Timespan.TimePeriod.WEEK);
+            case 7 -> (double) timespan.getAs(Timespan.TimePeriod.MONTH);
+            case 8 -> (double) timespan.getAs(Timespan.TimePeriod.YEAR);
+            default -> null;
+        }).filter(Objects::nonNull).toArray(Double[]::new);
 	}
 
 }

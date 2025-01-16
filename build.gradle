@@ -126,7 +126,7 @@ void createTestTask(String name, String environments, boolean devMode, int javaV
 
 def latestEnv = 'java17/paper-1.20.4.json'
 def latestJava = 17
-def oldestJava = 8
+def oldestJava = 17
 
 tasks.withType(JavaCompile).configureEach {
 	options.compilerArgs += ["-source", "" + oldestJava, "-target", "" + oldestJava]
@@ -135,7 +135,6 @@ tasks.withType(JavaCompile).configureEach {
 // Register different Skript testing tasks
 createTestTask('quickTest', 'src/test/resources/environments/' + latestEnv, false, latestJava)
 createTestTask('addonTestJava17', 'src/test/resources/environments/java17', false, latestJava)
-createTestTask('addonTestJava8', 'src/test/resources/environments/java8', false, oldestJava)
 createTestTask('addonTestDev', 'src/test/resources/environments/' + (project.property('testEnv') == null
 	? latestEnv : project.property('testEnv') + '.json'), true, Integer.parseInt(project.property('testEnvJavaVersion') == null
 	? latestJava : project.property('testEnvJavaVersion')))
